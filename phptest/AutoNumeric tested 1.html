@@ -1,0 +1,47 @@
+<HTML>
+
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://rawgit.com/BobKnothe/autoNumeric/master/autoNumeric.js"></script>
+
+<script>
+$(document).ready(function() {
+  $('input[type="text"]').click(function() {
+$(this).addClass('test1');
+	}); // end click
+}); // end ready
+</script>
+
+</head>
+
+<style>
+  input[type="text"] {width:200px; background-color:#3b5998; color:white;}
+  .test1 {
+			text-align:right; 
+		}
+</style>
+
+
+
+<BODY>
+   
+<input type="text" id="auto1" data-d-group="2" data-a-sign="Rs. ">
+
+<input type="text" id="auto2" data-d-group='2' data-a-sign='Tk. '>
+
+
+<script type="text/javascript">
+
+//$(Document).ready(function(){
+
+jQuery(function($) {
+    $('#auto1').autoNumeric('init');
+	$('#auto2').autoNumeric('init');
+//	});
+	});
+
+</script>
+    
+</BODY>
+
+</HTML>

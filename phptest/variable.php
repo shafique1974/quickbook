@@ -1,0 +1,1 @@
+<?php $num=45; echo $num; echo "Bangladesh"; $country="Bangladesh"; echo $country; ?>
