@@ -1,0 +1,74 @@
+body{
+	background-color: #e8f3f8;
+}
+h1 {
+	text-align: center;
+	font-size: 50px;
+	color: steelblue;
+}
+div {
+	font-size: 20px;
+	color: steelblue;
+}
+form {
+	margin: 20px auto;
+	width: 320px;
+	color: steelblue;
+}
+input {
+	padding: 10px;
+	font-size:inherit;
+}
+input[type="text"] {
+	border-radius: 24px;
+	outline: none;
+	display: block;
+	margin-bottom: 25px;
+	width: 100%;
+	border: 2px solid steelblue;
+}
+input[type="password"] {
+	border-radius: 24px;
+	outline: none;
+	display: block;
+	margin-bottom: 25px;
+	width: 100%;
+	border: 2px solid steelblue;
+}
+input[type="email"] {
+	border-radius: 24px;
+	outline: none;
+	display: block;
+	margin-bottom: 25px;
+	width: 100%;
+	border: 2px solid steelblue;
+}
+input[type="radio"] {
+	margin: 0 8px 25px 18px;
+}
+input[type="radio"]:first-child {
+	margin-left: 0 ;
+}
+input[type="submit"] {
+	border-radius: 24px;
+	outline: none;
+	width: 100%;
+	height: 45px;
+	border: none;
+	background: steelblue;
+	color: white;
+}
+input[type="submit"]:focus {
+	border-radius: 20px;
+	outline: none;
+	width: 70%;
+	height: 45px;
+	border: none;
+	background: pink;
+	color: blue;
+}
+div {
+	border-radius: 24px;
+	outline: none;
+	border: 1px;
+}
