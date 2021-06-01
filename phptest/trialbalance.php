@@ -1,3 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trial Balance</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<!--
+
+<style type="text/css">
+  
+table {
+
+background: wheat;
+}
+
+h1 {
+  text-align: center;
+}
+
+</style>
+
+-->
+
+</head>
+  
+<body>
+
+
 <?php
 global $row1;
 $con=mysqli_connect("127.0.0.1","root","","my_db");
@@ -13,35 +47,42 @@ $result = mysqli_query($con, "select DName, FORMAT(sum(Debit),0) as dddd from vo
 $result1 = mysqli_query($con1, "select CName, FORMAT(sum(Credit),0) as cccc from voucher GROUP by CName");
 
 
-echo "<h1>Trial Balance</h1>";
 
-echo "<table border='1'>
+
+echo "<div class='container'>
+
+<h1 class='text-center'>Trial Balance</h1>
+
+<table class ='table table-hover table-bordered'>
+<thead class='table-dark'>
 <tr>
 <th>Account Name</th>
-<th>Account Name</th>
 <th>Debit</th>
+<th>Account Name</th>
 <th>Credit</th>
 <th>Details</th>
-</tr>";
-
+</tr>
+</thead>";
+echo "<tbody>";
 while($row = mysqli_fetch_array($result) or $row1 = mysqli_fetch_array($result1))
   {
-  echo "<tr>";
+  echo "<tr class='table-primary'>";
   //echo "<td>" . $row['id'] . "</td>";
   //echo "<td>" . $row['PDate'] . "</td>";
   echo "<td>" . $row['DName'] . "</td>";
-  echo "<td>" . $row1['CName'] . "</td>";
   echo "<td>" . $row['dddd'] . "</td>";
   //echo "<td>" . $row['CName'] . "</td>";
+  echo "<td>" . $row1['CName'] . "</td>";
   echo "<td>" . $row1['cccc'] . "</td>";
   //echo "<td>" . $row['Narration'] . "</td>";
   //echo "<td>" . "<a href=VEdit.php?cos_id=".$row['id'].">Edit</a>" . "</td>";
   echo "<td>" . "<a href=VAdd.php>Details</a>" . "</td>";
   echo "</tr>";
   }
-echo "</table>";
+echo "</tbody>";
+echo "</table> </div>";
 
 mysqli_close($con);
 mysqli_close($con1);
-
 ?>
+</body>
