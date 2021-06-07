@@ -34,6 +34,7 @@ h1 {
 
 <?php
 global $row1;
+global $dname;
 $con=mysqli_connect("127.0.0.1","root","","my_db");
 $con1=mysqli_connect("127.0.0.1","root","","my_db");
 // Check connection
@@ -42,16 +43,16 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "select DName, FORMAT(sum(Debit),0) as dddd from voucher group by Dname");
+$result = mysqli_query($con, "select DName, FORMAT(sum(Debit),2) as dddd from voucher group by Dname") or die( mysqli_error($con));
 
-$result1 = mysqli_query($con1, "select CName, FORMAT(sum(Credit),0) as cccc from voucher GROUP by CName");
+$result1 = mysqli_query($con1, "select CName, FORMAT(sum(Credit),2) as cccc from voucher GROUP by CName");
 
 
 
 
 echo "<div class='container'>
 
-<h1 class='text-center'>Trial Balance</h1>
+<h1 class='text-right'>Trial Balance</h1>
 
 <table class ='table table-hover table-bordered'>
 <thead class='table-dark'>
@@ -66,17 +67,13 @@ echo "<div class='container'>
 echo "<tbody>";
 while($row = mysqli_fetch_array($result) or $row1 = mysqli_fetch_array($result1))
   {
+$fName = $row['DName'];
   echo "<tr class='table-primary'>";
-  //echo "<td>" . $row['id'] . "</td>";
-  //echo "<td>" . $row['PDate'] . "</td>";
-  echo "<td>" . $row['DName'] . "</td>";
-  echo "<td>" . $row['dddd'] . "</td>";
-  //echo "<td>" . $row['CName'] . "</td>";
+  echo "<td>" . $fName . "</td>";
+  echo "<td class='text-end'>" . $row['dddd'] . "</td>";
   echo "<td>" . $row1['CName'] . "</td>";
-  echo "<td>" . $row1['cccc'] . "</td>";
-  //echo "<td>" . $row['Narration'] . "</td>";
-  //echo "<td>" . "<a href=VEdit.php?cos_id=".$row['id'].">Edit</a>" . "</td>";
-  echo "<td>" . "<a href=VAdd.php>Details</a>" . "</td>";
+  echo "<td class='text-end'>" . $row1['cccc'] . "</td>";
+  echo "<td>" . "<a href=ACDetails.php?fName=".urlencode($fName).">"."Details</a>" . "</td>";
   echo "</tr>";
   }
 echo "</tbody>";
