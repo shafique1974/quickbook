@@ -67,15 +67,20 @@ echo "<div class='container'>
 echo "<tbody>";
 while($row = mysqli_fetch_array($result) or $row1 = mysqli_fetch_array($result1))
   {
-$fName = $row['DName'];
+$fName = $row['DName'] ?? null;
   echo "<tr class='table-primary'>";
   echo "<td>" . $fName . "</td>";
-  echo "<td class='text-end'>" . $row['dddd'] . "</td>";
-  echo "<td>" . $row1['CName'] . "</td>";
-  echo "<td class='text-end'>" . $row1['cccc'] . "</td>";
+$ddd = $row['dddd'] ?? null;
+  echo "<td class='text-end'>" . $ddd. "</td>";
+$cName = $row1['CName'] ?? null;
+  echo "<td>" . $cName . "</td>";
+$ccc = $row1['cccc'] ?? null;
+  echo "<td class='text-end'>" . $ccc . "</td>";
   echo "<td>" . "<a href=ACDetails.php?fName=".urlencode($fName).">"."Details</a>" . "</td>";
   echo "</tr>";
-  }
+
+
+}
 echo "</tbody>";
 echo "</table> </div>";
 
