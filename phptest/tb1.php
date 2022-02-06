@@ -94,9 +94,9 @@ while($p<count($fName))
   $fcc=$fCcc[$p] ?? null;
   
   echo "<td>" . $fName[$p] . "</td>";
-  echo "<td class='text-end'>" . $fcc. "</td>";
+  echo "<td class='text-end'>" . number_format($fcc,0) . "</td>";
   echo "<td>" . $fc. "</td>";
-  echo "<td class='text-end'>" . $fd . "</td>";
+  echo "<td class='text-end'>" . ($fd !=null ? number_format($fd,0) : null) . "</td>";
   echo "<td>" . "<a href=ACDetails.php?fName=".urlencode($fName[$p]).">"."Details</a>" . "</td>";
   echo "</tr>";
   $total1=$total1+$fcc;
@@ -106,9 +106,9 @@ while($p<count($fName))
 
 echo "<tr class='table-danger'>";
 echo "<td class='text-end'>" . "Total Debit :" . "</td>";
-echo "<td class='text-end'>" . $total1. "</td>";
+echo "<td class='text-end'>" . number_format($total1,0) . "</td>";
 echo "<td class='text-end'>". "Total Credit : ". "</td>";
-echo "<td class='text-end'>" . $total2 . "</td>";
+echo "<td class='text-end'>" . number_format($total2,0) . "</td>";
 echo "<td>" . "<a href=ACDetails.php"." class='btn btn-info'".">"."Details</a>" . "</td>";
 
 echo "</tbody>";
